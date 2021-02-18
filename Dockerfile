@@ -7,3 +7,5 @@ RUN apt-get update
 RUN apt install -y docker-ce
 RUN curl -L https://github.com/docker/compose/releases/download/1.27.4/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
 RUN chmod +x /usr/local/bin/docker-compose
+ENV KUBECTL_VERSION v1.18.8
+RUN curl -L --output /usr/local/bin/kubectl https://storage.googleapis.com/kubernetes-release/release/$KUBECTL_VERSION/bin/linux/amd64/kubectl && chmod +x /usr/local/bin/kubectl
